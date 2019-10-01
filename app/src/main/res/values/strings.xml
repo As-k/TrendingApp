@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Trending</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="sort_by_star">Sort by star</string>
+    <string name="sort_by_name">Sort by name</string>
+    <string name="trending">Trending</string>
+</resources>
