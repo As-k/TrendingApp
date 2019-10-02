@@ -5,32 +5,41 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.trending.ui.MainViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context=".MainActivity"
+        tools:context=".ui.MainActivity"
         tools:showIn="@layout/activity_main">
 
         <com.cooltechworks.views.shimmer.ShimmerRecyclerView
             android:id="@+id/shimmer_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:visibility="gone"
             app:shimmer_demo_angle="20"
-            app:shimmer_demo_shimmer_color="@color/white"
             app:shimmer_demo_layout="@layout/layout_shimmer_list"
-            app:shimmer_demo_layout_manager_type="linear_vertical" />
+            app:shimmer_demo_layout_manager_type="linear_vertical"
+            app:shimmer_demo_shimmer_color="@color/white"
+            app:shimmer_demo_view_holder_item_background="@color/default_shimmer_color"
+            tools:listitem="@layout/layout_shimmer_list" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/trending_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_trending_list_layout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

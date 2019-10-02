@@ -28,3 +28,16 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+// Define versions in a single place
+ext {
+
+    // App dependencies
+    circleImageViewVersion = '3.0.1'
+    glideVersion = '4.9.0'
+
+    gsonVersion = '2.8.5'
+    retrofitVersion = '2.6.0'
+    okhttp_logging_interceptor = '4.0.1'
+
+    multidexVersion = '2.0.1'
+}

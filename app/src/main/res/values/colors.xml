@@ -8,4 +8,7 @@
     <color name="black">#000000</color>
     <color name="demo_light_transparent">#17000000</color>
     <color name="default_shimmer_color">#E3E1E3</color>
+    <color name="gray_color">#E8E8E8</color>
+    <color name="text_name_color">#52575C</color>
+    <color name="text_repository_color">#52575C</color>
 </resources>

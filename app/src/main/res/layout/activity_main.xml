@@ -4,12 +4,16 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.trending.ui.MainViewModel" />
+
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".ui.MainActivity">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
@@ -20,7 +24,9 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <include layout="@layout/content_main" />
+        <include
+            android:id="@+id/content_layout"
+            layout="@layout/content_main" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
