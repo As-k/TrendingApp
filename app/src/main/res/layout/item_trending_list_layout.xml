@@ -1,158 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_pic_view"
-        android:layout_width="@dimen/dimen_32dp"
-        android:layout_height="@dimen/dimen_32dp"
-        android:layout_marginStart="@dimen/dimen_20dp"
-        android:layout_marginLeft="@dimen/dimen_20dp"
-        android:layout_marginTop="@dimen/dimen_16dp"
-        android:background="@drawable/profile_image_shape"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/name_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_16dp"
-        android:layout_marginLeft="@dimen/dimen_16dp"
-        android:layout_marginTop="@dimen/dimen_16dp"
-        android:layout_marginEnd="@dimen/dimen_16dp"
-        android:layout_marginRight="@dimen/dimen_16dp"
-        android:fontFamily="@font/roboto_regular"
-        android:textColor="@color/text_repository_color"
-        android:textSize="@dimen/font_12sp"
-        app:layout_constraintStart_toEndOf="@id/profile_pic_view"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Name" />
+        <variable
+            name="position"
+            type="Integer" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/repository_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_16dp"
-        android:layout_marginLeft="@dimen/dimen_16dp"
-        android:layout_marginTop="@dimen/dimen_6dp"
-        android:layout_marginEnd="@dimen/dimen_16dp"
-        android:layout_marginRight="@dimen/dimen_16dp"
-        android:fontFamily="@font/roboto_medium"
-        android:textColor="@color/text_repository_color"
-        android:textSize="@dimen/font_15sp"
-        app:layout_constraintStart_toEndOf="@id/profile_pic_view"
-        app:layout_constraintTop_toBottomOf="@id/name_text_view"
-        tools:text="Repository" />
+        <variable
+            name="model"
+            type="com.trending.data.model.StandardResult" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/description_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_16dp"
-        android:layout_marginLeft="@dimen/dimen_16dp"
-        android:layout_marginTop="@dimen/dimen_8dp"
-        android:layout_marginEnd="@dimen/dimen_16dp"
-        android:layout_marginRight="@dimen/dimen_16dp"
-        android:fontFamily="@font/pingfang_sc_regular"
-        android:textColor="@color/text_repository_color"
-        android:textSize="@dimen/font_12sp"
-        app:layout_constraintStart_toEndOf="@id/profile_pic_view"
-        app:layout_constraintTop_toBottomOf="@id/repository_text_view"
-        tools:text="Descriptions" />
+        <variable
+            name="listener"
+            type="com.trending.ui.MainAdapter.OnRecyclerItemClickListener" />
+    </data>
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/language_color_image"
-        android:layout_width="@dimen/dimen_16dp"
-        android:layout_height="@dimen/dimen_16dp"
-        android:layout_marginTop="@dimen/dimen_8dp"
-        android:layout_marginStart="@dimen/dimen_16dp"
-        android:layout_marginLeft="@dimen/dimen_16dp"
-        android:background="#123"
-        app:layout_constraintStart_toEndOf="@id/profile_pic_view"
-        app:layout_constraintTop_toBottomOf="@id/description_text_view" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/language_name_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_4dp"
-        android:layout_marginLeft="@dimen/dimen_4dp"
-        android:layout_marginTop="@dimen/dimen_8dp"
-        android:layout_marginEnd="@dimen/dimen_4dp"
-        android:layout_marginRight="@dimen/dimen_4dp"
-        android:fontFamily="@font/roboto_regular"
-        android:textColor="@color/text_repository_color"
-        android:textSize="@dimen/font_12sp"
-        app:layout_constraintStart_toEndOf="@id/language_color_image"
-        app:layout_constraintTop_toBottomOf="@id/description_text_view"
-        tools:text="Kotlin" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/star_image"
-        android:layout_width="@dimen/dimen_16dp"
-        android:layout_height="@dimen/dimen_16dp"
-        android:layout_marginTop="@dimen/dimen_8dp"
-        android:layout_marginStart="@dimen/dimen_16dp"
-        android:layout_marginLeft="@dimen/dimen_16dp"
-        android:src="@drawable/star_yellow_16"
-        app:layout_constraintStart_toEndOf="@id/language_name_text_view"
-        app:layout_constraintTop_toBottomOf="@id/description_text_view" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/star_count_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_4dp"
-        android:layout_marginLeft="@dimen/dimen_4dp"
-        android:layout_marginTop="@dimen/dimen_8dp"
-        android:layout_marginEnd="@dimen/dimen_4dp"
-        android:layout_marginRight="@dimen/dimen_4dp"
-        android:fontFamily="@font/roboto_regular"
-        android:textColor="@color/text_repository_color"
-        android:textSize="@dimen/font_12sp"
-        app:layout_constraintStart_toEndOf="@id/star_image"
-        app:layout_constraintTop_toBottomOf="@id/description_text_view"
-        tools:text="14,234" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/fork_image"
-        android:layout_width="@dimen/dimen_16dp"
-        android:layout_height="@dimen/dimen_16dp"
-        android:layout_marginTop="@dimen/dimen_8dp"
-        android:layout_marginStart="@dimen/dimen_16dp"
-        android:layout_marginLeft="@dimen/dimen_16dp"
-        android:src="@drawable/fork_black_16"
-        app:layout_constraintStart_toEndOf="@id/star_count_text_view"
-        app:layout_constraintTop_toBottomOf="@id/description_text_view" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/fork_count_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_4dp"
-        android:layout_marginLeft="@dimen/dimen_4dp"
-        android:layout_marginTop="@dimen/dimen_8dp"
-        android:layout_marginEnd="@dimen/dimen_4dp"
-        android:layout_marginRight="@dimen/dimen_4dp"
-        android:fontFamily="@font/roboto_regular"
-        android:textColor="@color/text_repository_color"
-        android:textSize="@dimen/font_12sp"
-        app:layout_constraintStart_toEndOf="@id/fork_image"
-        app:layout_constraintTop_toBottomOf="@id/description_text_view"
-        tools:text="14,234" />
-
-    <View
-        android:id="@+id/gray_view"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_1dp"
-        android:layout_marginTop="@dimen/dimen_16dp"
-        android:background="@color/gray_color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/language_color_image" />
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> listener.onRecyclerItemClicked(position, model)}">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_pic_view"
+            android:layout_width="@dimen/dimen_32dp"
+            android:layout_height="@dimen/dimen_32dp"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:layout_marginLeft="@dimen/dimen_20dp"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:background="@drawable/profile_image_shape"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/name_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_68dp"
+            android:layout_marginLeft="@dimen/dimen_68dp"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:layout_marginEnd="@dimen/dimen_16dp"
+            android:layout_marginRight="@dimen/dimen_16dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@{model.author}"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/font_12sp"
+            app:layout_constraintStart_toEndOf="@id/profile_pic_view"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/repository_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_68dp"
+            android:layout_marginLeft="@dimen/dimen_68dp"
+            android:layout_marginTop="@dimen/dimen_6dp"
+            android:layout_marginEnd="@dimen/dimen_16dp"
+            android:layout_marginRight="@dimen/dimen_16dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@{model.name}"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/font_15sp"
+            app:layout_constraintStart_toEndOf="@id/profile_pic_view"
+            app:layout_constraintTop_toBottomOf="@id/name_text_view"
+            tools:text="Repository" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/description_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_68dp"
+            android:layout_marginLeft="@dimen/dimen_68dp"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:layout_marginEnd="@dimen/dimen_16dp"
+            android:layout_marginRight="@dimen/dimen_16dp"
+            android:fontFamily="@font/pingfang_sc_regular"
+            android:text="@{model.description}"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/font_12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/profile_pic_view"
+            app:layout_constraintTop_toBottomOf="@id/repository_text_view"
+            tools:text="Collection of 8000+ publicly available IPTV channels from all over the world" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/language_color_image"
+            android:layout_width="@dimen/dimen_16dp"
+            android:layout_height="@dimen/dimen_16dp"
+            android:layout_marginStart="@dimen/dimen_16dp"
+            android:layout_marginLeft="@dimen/dimen_16dp"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:src="@drawable/star_yellow_16"
+            app:civ_border_color="#123"
+            app:civ_border_width="@dimen/dimen_8dp"
+            app:layout_constraintCircleRadius="@dimen/dimen_5dp"
+            app:layout_constraintStart_toEndOf="@id/profile_pic_view"
+            app:layout_constraintTop_toBottomOf="@id/description_text_view" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/language_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_4dp"
+            android:layout_marginLeft="@dimen/dimen_4dp"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:layout_marginEnd="@dimen/dimen_4dp"
+            android:layout_marginRight="@dimen/dimen_4dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@{model.language}"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/font_12sp"
+            app:layout_constraintStart_toEndOf="@id/language_color_image"
+            app:layout_constraintTop_toBottomOf="@id/description_text_view"
+            tools:text="Kotlin" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/star_image"
+            android:layout_width="@dimen/dimen_16dp"
+            android:layout_height="@dimen/dimen_16dp"
+            android:layout_marginStart="@dimen/dimen_16dp"
+            android:layout_marginLeft="@dimen/dimen_16dp"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:src="@drawable/star_yellow_16"
+            app:layout_constraintStart_toEndOf="@id/language_name_text_view"
+            app:layout_constraintTop_toBottomOf="@id/description_text_view" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/star_count_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_4dp"
+            android:layout_marginLeft="@dimen/dimen_4dp"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:layout_marginEnd="@dimen/dimen_4dp"
+            android:layout_marginRight="@dimen/dimen_4dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@{String.valueOf(model.stars)}"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/font_12sp"
+            app:layout_constraintStart_toEndOf="@id/star_image"
+            app:layout_constraintTop_toBottomOf="@id/description_text_view"
+            tools:text="14,234" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/fork_image"
+            android:layout_width="@dimen/dimen_16dp"
+            android:layout_height="@dimen/dimen_16dp"
+            android:layout_marginStart="@dimen/dimen_16dp"
+            android:layout_marginLeft="@dimen/dimen_16dp"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:src="@drawable/fork_black_16"
+            app:layout_constraintStart_toEndOf="@id/star_count_text_view"
+            app:layout_constraintTop_toBottomOf="@id/description_text_view" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fork_count_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_4dp"
+            android:layout_marginLeft="@dimen/dimen_4dp"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:layout_marginEnd="@dimen/dimen_4dp"
+            android:layout_marginRight="@dimen/dimen_4dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@{String.valueOf(model.forks)}"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/font_12sp"
+            app:layout_constraintStart_toEndOf="@id/fork_image"
+            app:layout_constraintTop_toBottomOf="@id/description_text_view"
+            tools:text="14,234" />
+
+        <View
+            android:id="@+id/gray_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1dp"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:background="@color/view_gray_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/star_image" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -5,7 +5,6 @@ import com.trending.utils.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
@@ -29,19 +28,15 @@ class ApiClient {
 
     private fun getClient(): Retrofit? {
         if (retrofit == null) {
-            val gson = GsonBuilder()
-                .setLenient()
-                .create()
+            val gson = GsonBuilder().setLenient().create()
             retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(getHttpClient())
                 .build()
-
-            return retrofit
-        } else
-            return retrofit
+        }
+        return retrofit
     }
 
     private fun getHttpClient(): OkHttpClient {
@@ -58,18 +53,18 @@ class ApiClient {
                  .build()
              chain.proceed(request)
          }*/
-//        if (authKey != null) {
         httpClientBuilder.addInterceptor { chain ->
             val request =
                 chain.request().newBuilder().header("Content-Type", "application/json").build()
             chain.proceed(request)
         }
-//        }
-//        httpClientBuilder.authenticator(TokenAuthenticator())
-
-        //        OkHttpClient client = new OkHttpClient.Builder()
         return httpClientBuilder.addNetworkInterceptor(interceptor)
             .readTimeout(30000, TimeUnit.MILLISECONDS)
             .connectTimeout(60000, TimeUnit.MILLISECONDS).build()
     }
+
+    fun getAPIService(): ApiService? {
+        return getClient()?.create(ApiService::class.java)
+    }
+
 }

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?><!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto">-->
+
+<!--    <data>-->
+
+<!--        <variable-->
+<!--            name="viewModel"-->
+<!--            type="com.trending.ui.MainViewModel" />-->
+
+<!--        <variable-->
+<!--            name="activity"-->
+<!--            type="com.trending.ui.MainActivity" />-->
+<!--    </data>-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/internet_error_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/nointernet_connection"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/something_wrong_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_24dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/something_went_wrong"
+        android:textColor="@color/text_bold_color"
+        android:textSize="@dimen/font_18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/internet_error_image" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/blocking_signal_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_8dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/an_alien_is_probably_blocking_your_signal"
+        android:textColor="@color/text_gray_color"
+        android:textSize="@dimen/font_15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/something_wrong_text" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/retry_button"
+        android:layout_width="328dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="@dimen/dimen_16dp"
+        android:layout_marginEnd="@dimen/dimen_16dp"
+        android:layout_marginBottom="@dimen/dimen_16dp"
+        android:background="@drawable/retry_bg_rectangle_green"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/retry"
+        android:textColor="@color/green_color"
+        android:textSize="@dimen/font_15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout><!--</layout>-->

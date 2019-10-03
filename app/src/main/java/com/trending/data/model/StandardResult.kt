@@ -1,6 +1,11 @@
 package com.trending.data.model
 
+import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
 import com.google.gson.annotations.SerializedName
+import com.trending.R
+import de.hdodenhof.circleimageview.CircleImageView
+
 
 data class StandardResult(
 
