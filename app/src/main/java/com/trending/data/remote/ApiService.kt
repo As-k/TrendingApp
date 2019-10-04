@@ -13,7 +13,7 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("repositories")
-    fun getTrandingRepositoryList(@Query("language") language: String,
+    fun getTrendingRepositoryList(@Query("language") language: String,
                                   @Query("since") since: String): Call<List<StandardResult>>
 
 }

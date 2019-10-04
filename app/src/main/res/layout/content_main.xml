@@ -26,8 +26,7 @@
             app:shimmer_demo_angle="20"
             app:shimmer_demo_layout="@layout/layout_shimmer_list"
             app:shimmer_demo_layout_manager_type="linear_vertical"
-            app:shimmer_demo_shimmer_color="@color/white"
-            app:shimmer_demo_view_holder_item_background="@color/default_shimmer_color"
+            app:shimmer_demo_view_holder_item_background="@color/white"
             tools:listitem="@layout/layout_shimmer_list" />
 
         <androidx.recyclerview.widget.RecyclerView

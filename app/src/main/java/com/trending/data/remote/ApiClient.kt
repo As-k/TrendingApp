@@ -12,8 +12,6 @@ class ApiClient {
     private val TAG = "ApiClient"
 
     private var retrofit: Retrofit? = null
-    private var retrofitWithAccess: Retrofit? = null
-//    private var authKey: String? = ""
 
     companion object {
         private var apiClient: ApiClient? = null
@@ -32,7 +30,6 @@ class ApiClient {
             retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
-//                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(getHttpClient())
                 .build()
         }
@@ -44,15 +41,6 @@ class ApiClient {
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
 
         val httpClientBuilder = OkHttpClient.Builder()
-        /* httpClientBuilder.addInterceptor { chain ->
-             val original = chain.request()
-             val request = original.newBuilder()
- //                .header("Content-Type", "application/json")
-                 .header("Authentication", authKey!!)
-                 .method(original.method, original.body)
-                 .build()
-             chain.proceed(request)
-         }*/
         httpClientBuilder.addInterceptor { chain ->
             val request =
                 chain.request().newBuilder().header("Content-Type", "application/json").build()

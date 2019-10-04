@@ -24,7 +24,7 @@ class CommonUtils {
                 .into(view)
         }
 
-        @BindingAdapter("app:civ_bgColor")
+        @BindingAdapter("civ_bgColor")
         fun setBackgroundColor(imageView: CircleImageView, civ_bgColor: String) {
             imageView.borderColor = Color.parseColor(civ_bgColor)
         }

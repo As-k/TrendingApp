@@ -1,6 +1,5 @@
 package com.trending.ui
 
-import android.os.Handler
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.trending.data.model.StandardResult
@@ -13,12 +12,11 @@ class MainViewModel : ViewModel() {
 
     val isLoading = MutableLiveData<Boolean>()
     val error = MutableLiveData<String>()
-    val isNoData = MutableLiveData<Boolean>()
     val responseTrendingList = MutableLiveData<List<StandardResult>>()
 
     fun getTrendingList() {
         isLoading.value = true
-        ApiClient.getInstance().getAPIService()!!.getTrandingRepositoryList("", "")
+        ApiClient.getInstance().getAPIService()!!.getTrendingRepositoryList("", "")
             .enqueue(object : Callback<List<StandardResult>> {
                 override fun onResponse(
                     call: Call<List<StandardResult>>,
