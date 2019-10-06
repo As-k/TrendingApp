@@ -13,9 +13,6 @@
             name="model"
             type="com.trending.data.model.StandardResult" />
 
-        <variable
-            name="listener"
-            type="com.trending.ui.MainAdapter.OnRecyclerItemClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,8 +21,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:clickable="true"
-        android:focusable="true"
-        android:onClick="@{() -> listener.onRecyclerItemClicked(position, model)}">
+        android:focusable="true">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_pic_view"
@@ -39,7 +35,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/name_text_view"
+            android:id="@+id/author_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dimen_68dp"
@@ -56,7 +52,7 @@
             tools:text="Name" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/repository_text_view"
+            android:id="@+id/name_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dimen_68dp"
@@ -69,7 +65,7 @@
             android:textColor="@color/text_color"
             android:textSize="@dimen/font_15sp"
             app:layout_constraintStart_toEndOf="@id/profile_pic_view"
-            app:layout_constraintTop_toBottomOf="@id/name_text_view"
+            app:layout_constraintTop_toBottomOf="@id/author_text_view"
             tools:text="Repository" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -83,7 +79,7 @@
             android:layout_marginRight="@dimen/dimen_16dp"
             android:visibility="gone"
             app:layout_constraintStart_toEndOf="@id/profile_pic_view"
-            app:layout_constraintTop_toBottomOf="@id/repository_text_view">
+            app:layout_constraintTop_toBottomOf="@id/name_text_view">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/description_text_view"

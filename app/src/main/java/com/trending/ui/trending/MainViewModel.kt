@@ -1,4 +1,4 @@
-package com.trending.ui
+package com.trending.ui.trending
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,6 +14,7 @@ class MainViewModel : ViewModel() {
     val error = MutableLiveData<String>()
     val responseTrendingList = MutableLiveData<List<StandardResult>>()
 
+    // calling trending api
     fun getTrendingList() {
         isLoading.value = true
         ApiClient.getInstance().getAPIService()!!.getTrendingRepositoryList("", "")
@@ -36,18 +37,7 @@ class MainViewModel : ViewModel() {
                     setError(t.message.toString())
                 }
             })
-
-//        Handler().postDelayed(
-//            Runnable { isLoading.value = false },
-//            2000
-//        )
     }
-
-
-    fun setIsLoading(isLoading: Boolean) {
-        this.isLoading.value = isLoading
-    }
-
     fun setError(error: String) {
         this.error.value = error
     }
